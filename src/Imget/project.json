@@ -47,7 +47,8 @@
       "docker-compose.debug.yml",
       "Dockerfile.debug",
       "Dockerfile",
-      ".dockerignore"
+      ".dockerignore",
+      "appsettings.json"
     ]
   },
   "scripts": {
