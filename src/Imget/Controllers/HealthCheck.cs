@@ -11,8 +11,6 @@ using Imget.Models;
 /// </remarks>
 namespace Imget.Controllers
 {
-    [Route("")] // Web Root Url
-    [Route("imget/")] // API Root Url
     [Route("imget/[controller]")]
     public class HealthCheck : Controller
     {
@@ -45,6 +43,6 @@ namespace Imget.Controllers
             var result = HealthCheckConfig;            
 
             return Ok(result);
-        }        
+        }                
     }
 }

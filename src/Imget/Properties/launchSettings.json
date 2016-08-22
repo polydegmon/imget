@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:62146/",
+      "applicationUrl": "http://localhost:62146/imget",
       "sslPort": 0
     }
   },
@@ -22,7 +22,7 @@
     "Imget": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5000",
+      "launchUrl": "http://localhost:5000/imget",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
