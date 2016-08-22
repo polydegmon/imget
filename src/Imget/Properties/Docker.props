@@ -11,7 +11,7 @@
 
     <!-- Use these properties to configure the process that will be started by the debugger in the container -->
     <DockerDebugStartProcess>dotnet</DockerDebugStartProcess>
-    <DockerDebugStartArgs>/imget/Imget.dll</DockerDebugStartArgs>
-    <DockerDebugWorkingDirectory>/imget/</DockerDebugWorkingDirectory>
+    <DockerDebugStartArgs>/app/Imget.dll</DockerDebugStartArgs>
+    <DockerDebugWorkingDirectory>/app/</DockerDebugWorkingDirectory>
   </PropertyGroup>
 </Project>

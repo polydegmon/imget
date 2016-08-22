@@ -11,14 +11,14 @@ RUN curl -SL https://raw.githubusercontent.com/Microsoft/MIEngine/getclrdbg-rele
     && rm GetClrDbg.sh
 
 # Set the Working Directory
-WORKDIR /imget
+WORKDIR /app
 
 # Configure the listening port to 80
 ENV ASPNETCORE_URLS http://*:80
 EXPOSE 80
 
 # Copy the app
-COPY . /imget
+COPY . /app
 
 # If we are launching through a remote debugger wait for it, otherwise start the app
 ENTRYPOINT ["/bin/bash", "-c", "if [ \"$REMOTE_DEBUGGING\" -eq 0 ]; then dotnet Imget.dll; else sleep infinity; fi"]
