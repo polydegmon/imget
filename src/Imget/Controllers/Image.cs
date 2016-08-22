@@ -38,19 +38,22 @@ namespace Imget.Controllers
         {
             _hostingEnvironment = hostingEnvironment;
 
+            // TODO: Inject this in from the appsettings.json file
             ImagePath = "images";
         }
 
         /// <summary>
-        /// Default GET operation
-        /// Gets a random image and returns it to the caller
-        /// This looks at all images in the wwwroot images folder
+        /// Get a random image
         /// </summary>
         /// <returns>
         /// A random file image
         /// </returns>
         /// <remarks>
-        /// GET imget/image
+        /// Default GET operation.
+        /// Gets a random image and returns it to the caller.
+        /// This looks at all images in the wwwroot images folder.
+        /// 
+        ///     GET imget/image
         /// </remarks>
         [HttpGet]
         public ActionResult Get()

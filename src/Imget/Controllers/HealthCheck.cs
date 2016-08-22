@@ -29,13 +29,16 @@ namespace Imget.Controllers
         }
 
         /// <summary>
-        /// System Health Check
+        /// System Health Check        
+        /// </summary>
+        /// <returns>
+        /// An Ok ActionResult containing the health check information
+        /// </returns>
+        /// <remarks>
         /// Gets information about the application.
         /// If this page can be hit the application is live.
-        /// </summary>
-        /// <returns>An Ok ActionResult containing the health check information</returns>
-        /// <remarks>
-        /// GET: imget/healthcheck
+        ///     
+        ///     GET: imget/healthcheck
         /// </remarks>
         [HttpGet]
         public ActionResult GetHealthCheck()

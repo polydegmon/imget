@@ -3,8 +3,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.PlatformAbstractions;
 
 using Imget.Models;
+
+// This provides the help pages
+using Swashbuckle.Swagger.Model;
 
 namespace Imget
 {
@@ -70,6 +74,30 @@ namespace Imget
             services.AddMvc()
                 .AddViewLocalization()
                 .AddDataAnnotationsLocalization();            
+
+            // Inject an implementation of ISwaggerProvider with defaulted settings applied
+            services.AddSwaggerGen();
+
+            //var applicationVersion = Configuration.GetSection("ApplicationInformation").GetValue<string>("Version");
+
+            services.ConfigureSwaggerGen(options =>
+            {
+                options.SingleApiVersion(new Info
+                {
+                    Version = "v1",
+                    Title = "Imget API",
+                    Description = "A micro service for offering up images",
+                    TermsOfService = "None",
+                    Contact = new Contact { Name = "Alan Joyce", Email = "", Url = "https://github.com/polydegmon" },
+                    License = new License { Name = "Use under LICX", Url = "http://url.com" }
+                });
+
+                //Determine base path for the application.
+                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+
+                //Set the comments path for the swagger json and ui.
+                options.IncludeXmlComments(basePath + "\\Imget.xml");
+            });            
         }
 
         /// <summary>
@@ -104,6 +132,12 @@ namespace Imget
             app.UseApplicationInsightsExceptionTelemetry();
                         
             app.UseMvc();
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
+            app.UseSwaggerUi();
         }
     }
 }

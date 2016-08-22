@@ -14,9 +14,26 @@ namespace Imget.Controllers
         /// <summary>
         /// 
         /// </summary>
+        public string HelpUrl { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Imget()
+        {
+            // TODO: Inject this in from the appsettings.json file
+            HelpUrl = "swagger/ui";
+        }
+
+        /// <summary>
+        /// Application entry point
+        /// </summary>
         /// <returns></returns>
         /// <remarks>
-        /// GET: imget
+        /// Application entry point.
+        /// This redirects the user to the help page
+        /// 
+        ///     GET: imget
         /// </remarks>
         [HttpGet]
         public ActionResult Get()
@@ -25,17 +42,23 @@ namespace Imget.Controllers
         }
 
         /// <summary>
-        /// 
+        /// API Help Documentation
         /// </summary>
         /// <returns></returns>
         /// <remarks>
-        /// GET: imget/help
+        /// Hitting this page will redirect the user to the help pages
+        /// 
+        ///     GET: imget/help
+        ///     
+        /// TODO: Implement Items from here - [https://docs.asp.net/en/latest/tutorials/web-api-help-pages-using-swagger.html#dataannotations]
         /// </remarks>
         [Route("help")]
         [HttpGet]
         public ActionResult GetHelp()
         {
-            return Ok("Imget Application Help Page - More to come");
+            var url = string.Format("{0}://{1}/{2}", HttpContext.Request.Scheme, HttpContext.Request.Host, HelpUrl);
+
+            return Redirect(url);            
         }
     }
 }
