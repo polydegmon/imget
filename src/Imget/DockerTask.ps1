@@ -326,6 +326,11 @@ function WaitForUrl ([string]$uri) {
     $status = 0
     $count = 0
 
+	# This is specific to the imget application
+	Write-Host "Updating uri to include the api name"
+	$uri = $uri + "/imget"
+	Write-Host "Application uri updated to [" + $uri + "]"
+
     #Check if the site is available
     while ($status -ne 200 -and $count -lt 120) {
         try {
