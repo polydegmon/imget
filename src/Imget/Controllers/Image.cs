@@ -4,9 +4,7 @@ using System.IO;
 using System;
 
 /// <summary>
-/// //todo: 
-/// // get a random image
-/// // get an image by category  
+/// 
 /// </summary>
 /// <remarks>
 /// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
