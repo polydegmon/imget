@@ -16,7 +16,6 @@ namespace Imget.Controllers
         /// </summary>
         /// <returns></returns>
         /// <remarks>
-        /// GET: [Url Root]
         /// GET: imget
         /// </remarks>
         [HttpGet]
@@ -30,7 +29,6 @@ namespace Imget.Controllers
         /// </summary>
         /// <returns></returns>
         /// <remarks>
-        /// GET: help
         /// GET: imget/help
         /// </remarks>
         [Route("help")]
