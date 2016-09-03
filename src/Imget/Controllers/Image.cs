@@ -17,7 +17,7 @@ namespace Imget.Controllers
         /// <summary>
         /// String representing the location of the images for the application        
         /// </summary>
-        public string ImagePath { get; }
+        private readonly string _imagePath;
 
         /// <summary>
         /// Hosting Environment property that holds the information about wwwroot for the application
@@ -37,7 +37,7 @@ namespace Imget.Controllers
             _hostingEnvironment = hostingEnvironment;
 
             // TODO: Inject this in from the appsettings.json file
-            ImagePath = "images";
+            _imagePath = "images";
         }
 
         /// <summary>
@@ -54,14 +54,14 @@ namespace Imget.Controllers
         ///     GET imget/image
         /// </remarks>
         [HttpGet]
-        public ActionResult Get()
+        public IActionResult Get()
         {
             // Check if we have an image path, if not return a 500 error
-            if (string.IsNullOrEmpty(ImagePath))
+            if (string.IsNullOrEmpty(_imagePath))
                 return StatusCode(500, "Image path has not been defined");
 
             // Choose a random file from the image directory
-            var filePath = GetRandomFileFromDirectory(ImagePath);
+            var filePath = GetRandomFileFromDirectory(_imagePath);
 
             // Return a 404 error if the file does not exist
             if (!System.IO.File.Exists(filePath))

@@ -11,6 +11,10 @@ using Imget.Models;
 /// </remarks>
 namespace Imget.Controllers
 {
+    /// <summary>
+    /// Health Check controller   
+    /// Used to give various health stats about the application
+    /// </summary>
     [Route("imget/[controller]")]
     public class HealthCheck : Controller
     {
@@ -41,7 +45,7 @@ namespace Imget.Controllers
         ///     GET: imget/healthcheck
         /// </remarks>
         [HttpGet]
-        public ActionResult GetHealthCheck()
+        public IActionResult GetHealthCheck()
         {
             var result = HealthCheckConfig;            
 

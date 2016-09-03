@@ -1,33 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 /// <summary>
-/// TODO: 
-/// deploy to AWS
-/// deploy to Azure
-/// 
-/// create authorization with single user and password
-/// 
-/// wire up database
-/// 
-/// controller - List
-/// ------------------
-/// list the image files
-/// list the files by category
-/// list categories 
-/// 
-/// controller - Image
-/// ------------------
-/// get a random image - done
-/// get an image by category 
-/// 
-/// add an image
-/// remove an image
-/// update image category [set | remove] [category has to exist]
-/// 
-/// controller - Category
-/// ------------------
-/// create a category
-/// remove a category
 /// 
 /// </summary>
 /// <remarks>
@@ -35,6 +8,9 @@
 /// </remarks>
 namespace Imget.Controllers
 {    
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("imget")]    
     public class Imget : Controller
     {
@@ -62,8 +38,8 @@ namespace Imget.Controllers
         /// 
         ///     GET: imget
         /// </remarks>
-        [HttpGet]
-        public ActionResult Get()
+        [HttpGet]        
+        public IActionResult Get()
         {
             return Ok("Imget Application Entry Point - See imget/help for more information");
         }
@@ -81,7 +57,7 @@ namespace Imget.Controllers
         /// </remarks>
         [Route("help")]
         [HttpGet]
-        public ActionResult GetHelp()
+        public IActionResult GetHelp()
         {
             var url = string.Format("{0}://{1}/{2}", HttpContext.Request.Scheme, HttpContext.Request.Host, HelpUrl);
 
