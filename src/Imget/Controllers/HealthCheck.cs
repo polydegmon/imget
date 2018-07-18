@@ -11,8 +11,10 @@ using Imget.Models;
 /// </remarks>
 namespace Imget.Controllers
 {
-    [Route("")] // Web Root Url
-    [Route("imget/")] // API Root Url
+    /// <summary>
+    /// Health Check controller   
+    /// Used to give various health stats about the application
+    /// </summary>
     [Route("imget/[controller]")]
     public class HealthCheck : Controller
     {
@@ -31,20 +33,23 @@ namespace Imget.Controllers
         }
 
         /// <summary>
-        /// System Health Check
+        /// System Health Check        
+        /// </summary>
+        /// <returns>
+        /// An Ok ActionResult containing the health check information
+        /// </returns>
+        /// <remarks>
         /// Gets information about the application.
         /// If this page can be hit the application is live.
-        /// </summary>
-        /// <returns>An Ok ActionResult containing the health check information</returns>
-        /// <remarks>
-        /// GET: imget/healthcheck
+        ///     
+        ///     GET: imget/healthcheck
         /// </remarks>
         [HttpGet]
-        public ActionResult GetHealthCheck()
+        public IActionResult GetHealthCheck()
         {
             var result = HealthCheckConfig;            
 
             return Ok(result);
-        }        
+        }                
     }
 }
